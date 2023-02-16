@@ -66,6 +66,9 @@ rm -f /etc/cron.daily/google-chrome /etc/apt/sources.list.d/google-chrome.list /
 FULL_CHROME_VERSION=$(google-chrome --product-version)
 CHROME_VERSION=${FULL_CHROME_VERSION%.*}
 
+# Install libgtk-2.0 dependency for chromedriver
+apt install libgtk2.0-0 -yq
+
 # Determine the latest release of chromedriver
 # Compatibility of Google Chrome and Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/downloads/version-selection
 LATEST_CHROMEDRIVER_VERSION=$(curl -sL "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
